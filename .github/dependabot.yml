@@ -28,6 +28,17 @@ updates:
       javascript-dependencies:
         patterns:
           - "*"
+        update-types:
+          - minor
+          - patch
+    ignore:
+      # The current Next.js lint stack supports ESLint 9 and TypeScript 6.
+      - dependency-name: eslint
+        update-types:
+          - version-update:semver-major
+      - dependency-name: typescript
+        update-types:
+          - version-update:semver-major
   - package-ecosystem: github-actions
     directory: /
     schedule:
