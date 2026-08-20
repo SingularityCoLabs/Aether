@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and design discussions
+    url: https://github.com/SingularityCoLabs/Aether/discussions
+    about: Ask for help or explore a design before proposing implementation.
+  - name: Report a security vulnerability
+    url: https://github.com/SingularityCoLabs/Aether/security/advisories/new
+    about: Send suspected vulnerabilities privately to the maintainers.

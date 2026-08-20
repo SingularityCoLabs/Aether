@@ -2,11 +2,22 @@
 
 ## Reporting a vulnerability
 
-Do not open a public issue for a suspected vulnerability. Report it privately
-through the repository host's security-advisory channel. Include affected
-versions, reproduction details, impact, and any proposed mitigation.
+Do not open a public issue or discussion for a suspected vulnerability. Use
+[GitHub private vulnerability reporting](https://github.com/SingularityCoLabs/Aether/security/advisories/new)
+to send the maintainers affected versions or commits, reproduction details,
+impact, and any proposed mitigation. Remove credentials, private keys,
+production data, and unrelated personal information from the report.
+
+Maintainers will acknowledge a valid report, investigate it privately, and
+coordinate disclosure after a fix is available. No response-time guarantee is
+offered before Aether's first stable release.
 
 ## Supported versions
+
+| Version            | Supported |
+| ------------------ | --------- |
+| Latest `main`      | Yes       |
+| Older commits/tags | No        |
 
 Aether has not published a stable release. Until then, only the latest commit
 on the default branch receives security fixes.

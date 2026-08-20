@@ -2,6 +2,8 @@
 
 Describe the capability or defect fixed.
 
+Closes #
+
 ## Boundary changes
 
 - Resource/API:
@@ -15,4 +17,11 @@ Describe the capability or defect fixed.
 - [ ] Go tests and checks pass.
 - [ ] Web tests, typecheck, and build pass.
 - [ ] Integration or E2E evidence is included when relevant.
+- [ ] User-facing behavior and architectural decisions are documented.
 - [ ] No credentials, tokens, private keys, or production data are present.
+
+## Compatibility and risk
+
+- Breaking API or schema change:
+- Security or trust-boundary impact:
+- Rollback or failure behavior:

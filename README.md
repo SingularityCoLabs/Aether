@@ -1,7 +1,13 @@
 # Aether
 
-Aether is an AI-native, self-hosted cloud control plane. Its central design
-rule is:
+[![CI](https://github.com/SingularityCoLabs/Aether/actions/workflows/ci.yml/badge.svg)](https://github.com/SingularityCoLabs/Aether/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/SingularityCoLabs/Aether/actions/workflows/codeql.yml/badge.svg)](https://github.com/SingularityCoLabs/Aether/actions/workflows/codeql.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-0f766e.svg)](LICENSE)
+[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-0f766e.svg)](CONTRIBUTING.md)
+
+Aether is an AI-native, self-hosted cloud control plane built with Go and
+Next.js. It exposes one typed Resource API to the dashboard, CLI, automation,
+and future AI agent. Its central design rule is:
 
 > Aether is a control plane first, an AI agent second, and an infrastructure
 > executor third.
@@ -50,7 +56,7 @@ internal/database/migrations so aetherd can run as a single artifact.
 ## Prerequisites
 
 - Go 1.27
-- Node.js 26
+- Node.js 24.19 LTS
 - pnpm 10.32
 - Docker with Compose (for the complete local stack)
 
@@ -90,6 +96,25 @@ for the full development workflow.
 5. Risk, approval, audit, and tests precede agent tool exposure.
 6. Later systems such as K3s, Crossplane, NATS, Temporal, and OpenBao are added
    only when a concrete capability needs them.
+
+## Documentation
+
+- [Architecture](ARCHITECTURE.md) and [accepted decisions](docs/decisions)
+- [Development setup](docs/development/getting-started.md)
+- [Roadmap](ROADMAP.md)
+- [Security model](docs/security/threat-model.md)
+
+## Contributing and community
+
+Aether welcomes focused issues, documentation improvements, tests, and code
+contributions. Start with [CONTRIBUTING.md](CONTRIBUTING.md), follow the
+[Code of Conduct](.github/CODE_OF_CONDUCT.md), and use
+[GitHub Discussions](https://github.com/SingularityCoLabs/Aether/discussions)
+for questions or design exploration.
+
+Please report vulnerabilities through
+[GitHub's private vulnerability reporting](https://github.com/SingularityCoLabs/Aether/security/advisories/new),
+not through a public issue. See [SECURITY.md](SECURITY.md).
 
 ## License
 
