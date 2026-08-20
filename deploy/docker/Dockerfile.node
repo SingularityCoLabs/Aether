@@ -1,0 +1,31 @@
+FROM golang:1.27.0-alpine AS build
+
+RUN apk add --no-cache git
+WORKDIR /src
+
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY cmd ./cmd
+COPY internal/buildinfo ./internal/buildinfo
+
+ARG VERSION=dev
+ARG COMMIT=none
+ARG BUILD_DATE=unknown
+
+RUN CGO_ENABLED=0 GOOS=linux go build \
+    -trimpath \
+    -ldflags="-s -w \
+      -X github.com/SingularityCoLabs/aether/internal/buildinfo.Version=$VERSION \
+      -X github.com/SingularityCoLabs/aether/internal/buildinfo.Commit=$COMMIT \
+      -X github.com/SingularityCoLabs/aether/internal/buildinfo.Date=$BUILD_DATE" \
+    -o /out/aether-node \
+    ./cmd/aether-node
+
+FROM gcr.io/distroless/static-debian12:nonroot
+
+COPY --from=build /out/aether-node /aether-node
+
+USER nonroot:nonroot
+ENTRYPOINT ["/aether-node"]
+

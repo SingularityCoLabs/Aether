@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package aether.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/SingularityCoLabs/aether/gen/go/aether/v1;aetherv1";
+
+enum RiskLevel {
+  RISK_LEVEL_UNSPECIFIED = 0;
+  RISK_LEVEL_READ_ONLY = 1;
+  RISK_LEVEL_LOW = 2;
+  RISK_LEVEL_MEDIUM = 3;
+  RISK_LEVEL_HIGH = 4;
+  RISK_LEVEL_CRITICAL = 5;
+}
+
+message StatusCondition {
+  string type = 1;
+  bool status = 2;
+  string reason = 3;
+  string message = 4;
+  int64 observed_generation = 5;
+  google.protobuf.Timestamp last_transition_time = 6;
+}

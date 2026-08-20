@@ -1,0 +1,24 @@
+.DS_Store
+.env
+.env.local
+.tools/
+
+# Go
+/bin/
+/coverage.out
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+playwright-report/
+test-results/
+*.tsbuildinfo
+
+# Generated temporary files
+/tmp/
+
+# Editors
+.idea/
+.vscode/
+

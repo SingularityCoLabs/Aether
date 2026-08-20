@@ -1,0 +1,33 @@
+name: Capability proposal
+description: Propose one user-visible Aether capability
+title: "[Capability]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: User outcome
+      description: Describe the capability without choosing an implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: resource
+    attributes:
+      label: Resource and API shape
+      description: Which desired state and observation should become part of the contract?
+    validations:
+      required: true
+  - type: textarea
+    id: risk
+    attributes:
+      label: Risk, approval, and audit behavior
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification
+      description: Unit, integration, provider-contract, and E2E evidence needed.
+    validations:
+      required: true

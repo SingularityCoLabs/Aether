@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package aether.v1;
+
+import "aether/v1/common.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/SingularityCoLabs/aether/gen/go/aether/v1;aetherv1";
+
+enum OperationState {
+  OPERATION_STATE_UNSPECIFIED = 0;
+  OPERATION_STATE_PENDING = 1;
+  OPERATION_STATE_PLANNING = 2;
+  OPERATION_STATE_WAITING_APPROVAL = 3;
+  OPERATION_STATE_RUNNING = 4;
+  OPERATION_STATE_VERIFYING = 5;
+  OPERATION_STATE_SUCCEEDED = 6;
+  OPERATION_STATE_FAILED = 7;
+  OPERATION_STATE_ROLLING_BACK = 8;
+  OPERATION_STATE_ROLLED_BACK = 9;
+  OPERATION_STATE_CANCELED = 10;
+}
+
+message Operation {
+  string id = 1;
+  string project_id = 2;
+  string type = 3;
+  OperationState state = 4;
+  RiskLevel risk_level = 5;
+  google.protobuf.Timestamp created_at = 6;
+  google.protobuf.Timestamp updated_at = 7;
+}

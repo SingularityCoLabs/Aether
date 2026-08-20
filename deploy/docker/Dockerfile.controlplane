@@ -1,0 +1,35 @@
+FROM golang:1.27.0-alpine AS build
+
+RUN apk add --no-cache ca-certificates git
+WORKDIR /src
+
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY cmd ./cmd
+COPY gen/go ./gen/go
+COPY internal ./internal
+COPY pkg ./pkg
+
+ARG VERSION=dev
+ARG COMMIT=none
+ARG BUILD_DATE=unknown
+
+RUN CGO_ENABLED=0 GOOS=linux go build \
+    -trimpath \
+    -ldflags="-s -w \
+      -X github.com/SingularityCoLabs/aether/internal/buildinfo.Version=$VERSION \
+      -X github.com/SingularityCoLabs/aether/internal/buildinfo.Commit=$COMMIT \
+      -X github.com/SingularityCoLabs/aether/internal/buildinfo.Date=$BUILD_DATE" \
+    -o /out/aetherd \
+    ./cmd/aetherd
+
+FROM gcr.io/distroless/static-debian12:nonroot
+
+COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+COPY --from=build /out/aetherd /aetherd
+
+USER nonroot:nonroot
+EXPOSE 8080
+ENTRYPOINT ["/aetherd"]
+

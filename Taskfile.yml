@@ -1,0 +1,35 @@
+version: "3"
+
+tasks:
+  bootstrap:
+    desc: Install project dependencies
+    cmds:
+      - make bootstrap
+  generate:
+    desc: Regenerate API and SQL code
+    cmds:
+      - make generate
+  format:
+    desc: Format all source
+    cmds:
+      - make format
+  check:
+    desc: Run static checks, tests, and builds
+    cmds:
+      - make check
+  test:
+    desc: Run unit tests
+    cmds:
+      - make test
+  test:integration:
+    desc: Run PostgreSQL integration tests
+    cmds:
+      - make test-integration
+  test:e2e:
+    desc: Run Playwright tests
+    cmds:
+      - make test-e2e
+  dev:
+    desc: Start the local development stack
+    cmds:
+      - make dev

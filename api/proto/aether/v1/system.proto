@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package aether.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/SingularityCoLabs/aether/gen/go/aether/v1;aetherv1";
+
+service SystemService {
+  rpc GetSystemInfo(GetSystemInfoRequest) returns (GetSystemInfoResponse);
+}
+
+message GetSystemInfoRequest {}
+
+message GetSystemInfoResponse {
+  string name = 1;
+  string version = 2;
+  string commit = 3;
+  string build_date = 4;
+  string environment = 5;
+  google.protobuf.Timestamp started_at = 6;
+}

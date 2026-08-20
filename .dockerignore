@@ -1,0 +1,13 @@
+.git
+.github
+.tools
+.next
+node_modules
+web/.next
+web/node_modules
+coverage.out
+bin
+tmp
+.env
+*.md
+
