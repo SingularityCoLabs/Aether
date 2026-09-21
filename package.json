@@ -31,9 +31,9 @@
     "buf:generate": "buf generate"
   },
   "devDependencies": {
-    "@bufbuild/buf": "1.72.0",
-    "@bufbuild/protoc-gen-es": "2.14.0",
-    "prettier": "3.9.6",
+    "@bufbuild/buf": "1.73.0",
+    "@bufbuild/protoc-gen-es": "2.15.0",
+    "prettier": "3.9.8",
     "prettier-plugin-tailwindcss": "0.8.1"
   }
 }
